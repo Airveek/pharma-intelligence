@@ -1,4 +1,6 @@
 import { AppShell } from "@/components/layout/app-shell";
+import { AppHeader } from "@/components/layout/header";
+import { OverviewView } from "@/features/overview";
 import { SIDEBAR_SECTION_IDS, type SidebarSection } from "@/types/navigation";
 
 interface HomeProps {
@@ -18,9 +20,8 @@ export default async function Home({ searchParams }: HomeProps) {
 
   return (
     <AppShell selectedSection={selectedSection}>
-      <h1 id="page-title" className="sr-only">
-        Pharma Intelligence workspace
-      </h1>
+      <AppHeader currentSectionTitle="Overview" />
+      <OverviewView />
     </AppShell>
   );
 }

@@ -16,7 +16,10 @@
   - NO raw hex/rgb in JSX. Use semantic shadcn tokens: `bg-primary`, `text-primary-foreground`, `bg-sidebar`, `text-sidebar-foreground`, `bg-background`, `text-foreground`, `border-border`, etc.
   - Theme colors: Primary blue is `oklch(0.54 0.235 264.4)` for light mode, `oklch(0.62 0.22 264.4)` for dark mode.
 - **Fonts**: All fonts defined in `lib/fonts.ts`. Inter is the primary font mapped to `--font-sans`.
-- **Code Quality**:
+- **Code Quality & shadcn/ui Standards**:
   - Strict typing (no `any`).
   - Named exports for all components and utilities.
   - Merge classes using `cn()` from `@/lib/utils`.
+  - **100% Mandatory shadcn/ui Primitives**: ALL controls, cards, tables, inputs, breadcrumbs, badges, avatars, and tooltips must use official components from `components/ui/`. NEVER write ad-hoc HTML elements with custom classes when a shadcn primitive exists.
+  - **Pixel-Perfect Spacing & Sizing**: Maintain uniform spacing scales (`gap-5` section rhythm, `px-5 py-4` card headers, `py-3` table rows). Avoid redundant double-padding inside cards. Use clean sentence-case headers (`Product`, `Market`, `Signal`).
+  - **Full-Width Layouts**: Workspace views must be fluid and full-width (`w-full`) with responsive padding (`px-4 sm:px-6 md:px-8 py-6`). Never apply artificial max-width constraints (`max-w-7xl mx-auto`) to dashboard pages.

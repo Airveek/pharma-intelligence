@@ -80,3 +80,23 @@ pharma-intelligence/
 - Add appropriate ARIA attributes (`aria-label`, `aria-current`, `aria-hidden`, `aria-expanded`).
 - All interactive elements must have visible keyboard focus styles (`focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring`).
 - Preserve responsive behaviors (desktop aside with `hidden md:flex`, mobile drawer with accessible Dialog/Drawer primitives).
+
+---
+
+## 6. Reusable Component & shadcn/ui Standards
+
+- **100% Mandatory shadcn/ui Primitives**:
+  - **ALL** interactive controls, surfaces, typography containers, tables, forms, and feedback elements must consume official `shadcn/ui` components from `components/ui/` (`Button`, `Badge`, `Card`, `Table`, `Input`, `Breadcrumb`, `Avatar`, `Tooltip`, `Separator`, `Dialog`, `Popover`, etc.).
+  - **NEVER** write ad-hoc HTML elements (`<button>`, `<table>`, `<input>`, custom breadcrumb spans) with inline styling when a standardized `components/ui/` primitive exists.
+  - When a new shadcn component is required, install it using the official CLI (`pnpm dlx shadcn@latest add <component>`) and configure any semantic domain variants directly inside `components/ui/`.
+- **Pixel-Perfect Spacing, Sizing & Alignment**:
+  - Maintain a harmonious vertical rhythm: use consistent spacing scales (`gap-5` across dashboard sections, `px-5 py-4` on card headers, `py-3` on table rows).
+  - Avoid redundant or doubled padding: do not nest arbitrary padding (`p-4`, `p-5`) inside containers that already feature built-in card spacing (`--card-spacing`).
+  - Table headers must use clean, readable sentence-case formatting (`Product`, `Market`, `Signal`) with muted foreground colors rather than aggressive all-caps.
+- **DRY Component Architecture**:
+  - Do not write code just to write code. If any visual element, widget, or pattern is likely to be reused across multiple screens or features (e.g., metric cards, country flags, sparklines, status pills, action rows), extract it into a dedicated, clean, typed component.
+- **Full-Width Fluid Workspace Layouts**:
+  - Workspace pages must be **fluid and full-width** (`w-full`) to maximize horizontal screen real estate for dense data tables, regulatory matrices, and analytics widgets.
+  - **NEVER** restrict workspace dashboards with artificial width constraints (e.g. avoid `max-w-7xl mx-auto` or `max-w-5xl mx-auto` on main workspace views).
+  - Use responsive container padding (`px-4 sm:px-6 md:px-8 py-6`) that seamlessly adapts from mobile (`375px`), tablet (`768px`), desktop (`1024px`), wide desktop (`1440px`), to ultra-wide (`1920px+`).
+  - Tables must be wrapped with responsive horizontal scroll guards (`overflow-x-auto`) to guarantee zero layout breaks on smaller viewports.

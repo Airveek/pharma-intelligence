@@ -21,7 +21,7 @@ export const Sidebar: FC<SidebarProps> = ({ selectedSection }) => {
     <>
       {/* Desktop Sidebar */}
       <aside
-        className="hidden md:flex w-sidebar min-h-dvh flex-col border-r border-sidebar-border bg-sidebar p-3 shrink-0"
+        className="hidden md:flex w-sidebar h-dvh flex-col border-r border-sidebar-border bg-sidebar p-3 shrink-0 overflow-y-auto sticky top-0"
         aria-label="Primary navigation"
       >
         <SidebarBrand />

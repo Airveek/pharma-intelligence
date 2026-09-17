@@ -9,9 +9,12 @@ interface AppShellProps {
 
 export const AppShell: FC<AppShellProps> = ({ selectedSection, children }) => {
   return (
-    <div className="flex min-h-dvh flex-col md:flex-row bg-background text-foreground">
+    <div className="flex h-dvh w-full overflow-hidden flex-col md:flex-row bg-background text-foreground">
       <Sidebar selectedSection={selectedSection} />
-      <main className="flex-1 min-w-0 min-h-dvh bg-background" aria-labelledby="page-title">
+      <main
+        className="flex-1 min-w-0 h-dvh overflow-y-auto flex flex-col bg-background"
+        aria-labelledby="page-title"
+      >
         {children}
       </main>
     </div>

@@ -3,31 +3,32 @@
 import type { FC } from "react";
 import Link from "next/link";
 import {
-  Archive,
+  Bookmark,
   Building2,
   ClipboardList,
   ContactRound,
   FileText,
-  LayoutDashboard,
+  Home,
   Search,
-  Ship,
   Target,
+  Truck,
   UsersRound,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import type { NavItem, NavItemIcon, SidebarSection } from "@/types/navigation";
 
 const iconMap: Record<NavItemIcon, LucideIcon> = {
-  overview: LayoutDashboard,
+  overview: Home,
   market: Search,
   buyers: UsersRound,
-  shipments: Ship,
+  shipments: Truck,
   contacts: ContactRound,
   products: FileText,
   tender: Target,
   suppliers: Building2,
-  saved: Archive,
+  saved: Bookmark,
   briefs: ClipboardList,
 };
 
@@ -56,7 +57,7 @@ export const SidebarNav: FC<SidebarNavProps> = ({
           />
         ))}
       </ul>
-      <div className="my-4 h-px bg-sidebar-border" />
+      <Separator className="my-4 bg-sidebar-border" />
       <ul className="space-y-1">
         {utilityItems.map((item) => (
           <SidebarNavItem
