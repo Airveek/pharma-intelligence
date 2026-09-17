@@ -15,7 +15,7 @@
   - If custom tokens are needed, define them in `@theme` in `app/globals.css` (e.g. `--width-sidebar: 16.25rem;` -> `w-sidebar`).
   - NO raw hex/rgb in JSX. Use semantic shadcn tokens: `bg-primary`, `text-primary-foreground`, `bg-sidebar`, `text-sidebar-foreground`, `bg-background`, `text-foreground`, `border-border`, etc.
   - Theme colors: Primary blue is `oklch(0.54 0.235 264.4)` for light mode, `oklch(0.62 0.22 264.4)` for dark mode.
-- **Fonts**: All fonts defined in `lib/fonts.ts`. Inter is the primary font mapped to `--font-sans`.
+- **Fonts**: All fonts defined in `lib/fonts.ts`. Inter is the primary font loaded as `--font-inter` and mapped to `--font-sans` in `@theme` in `app/globals.css`.
 - **Code Quality & shadcn/ui Standards**:
   - Strict typing (no `any`).
   - Named exports for all components and utilities.

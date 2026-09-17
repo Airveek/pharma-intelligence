@@ -59,8 +59,8 @@ pharma-intelligence/
 
 - **NEVER** instantiate fonts inside `app/layout.tsx` or individual components.
 - All fonts must be defined in `lib/fonts.ts` and exported as named font objects (e.g., `fontSans`).
-- Inter is the official primary font throughout the application, registered with all 8 weights (100–900) and mapped to the CSS variable `--font-sans`.
-- `app/layout.tsx` applies `fontSans.variable` to `<html>` and `font-sans` to `<body>`.
+- Inter is the official primary font throughout the application, registered with all 8 weights (100–900) via `localFont` in `lib/fonts.ts` using CSS variable `--font-inter` and mapped to `--font-sans` in `@theme inline` in `app/globals.css`.
+- `app/layout.tsx` applies `Inter.variable` to `<html>` and `font-sans` to `<body>`.
 
 ---
 

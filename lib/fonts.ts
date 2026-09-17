@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
 
-export const fontSans = localFont({
+export const Inter = localFont({
   src: [
     {
       path: "../public/fonts/Inter_18pt-Thin.ttf",
@@ -43,6 +43,6 @@ export const fontSans = localFont({
       style: "normal",
     },
   ],
-  variable: "--font-sans",
+  variable: "--font-inter",
   display: "swap",
 });

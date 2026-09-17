@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { fontSans } from "@/lib/fonts";
+import { Inter } from "@/lib/fonts";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
@@ -10,10 +10,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${fontSans.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${Inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans">
         <TooltipProvider>{children}</TooltipProvider>
       </body>
