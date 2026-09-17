@@ -1,0 +1,22 @@
+# Pharma Intelligence Architecture & Development Standards
+
+- **Tech Stack**: Next.js 15+ (App Router), React 19, TypeScript (strict), Tailwind CSS v4, shadcn/ui.
+- **Server Components**: Keep components Server Components by default. Add `"use client"` only when interactivity (hooks, event handlers) is strictly needed.
+- **Folder Structure**:
+  - `app/`: Routes and page compositions only. Keep pages thin.
+  - `components/ui/`: Pure shadcn/ui atomic primitives. No business logic.
+  - `components/layout/`: Structural layout components (`AppShell`, `Sidebar`, etc.).
+  - `features/`: Modular domain features.
+  - `lib/`: Utilities (`utils.ts`), fonts (`fonts.ts`), constants (`constants.ts`).
+  - `types/`: Strict TypeScript interfaces and contracts.
+- **Styling Rules**:
+  - NO arbitrary bracket classes (`w-[260px]`, `text-[13px]`, `shadow-[...]`).
+  - Use standard Tailwind utility scales (`w-64`, `text-sm`, `text-xs`, `rounded-lg`, etc.).
+  - If custom tokens are needed, define them in `@theme` in `app/globals.css` (e.g. `--width-sidebar: 16.25rem;` -> `w-sidebar`).
+  - NO raw hex/rgb in JSX. Use semantic shadcn tokens: `bg-primary`, `text-primary-foreground`, `bg-sidebar`, `text-sidebar-foreground`, `bg-background`, `text-foreground`, `border-border`, etc.
+  - Theme colors: Primary blue is `oklch(0.54 0.235 264.4)` for light mode, `oklch(0.62 0.22 264.4)` for dark mode.
+- **Fonts**: All fonts defined in `lib/fonts.ts`. Inter is the primary font mapped to `--font-sans`.
+- **Code Quality**:
+  - Strict typing (no `any`).
+  - Named exports for all components and utilities.
+  - Merge classes using `cn()` from `@/lib/utils`.
